@@ -20,7 +20,7 @@ const LandingPage = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <span className="px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold border border-blue-100 mb-6 inline-block">
-                            Powered by Gemini 2.0
+                            Powered by Groq
                         </span>
                         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
                             Master the <span className="text-blue-600">ATS</span> & Land Your <br className="hidden md:block" /> Dream Job

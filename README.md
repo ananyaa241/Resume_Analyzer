@@ -2,14 +2,14 @@
   <img src="./assets/banner.png" alt="AI Resume Analyzer Banner" width="100%" />
 
   # 🚀 AI Resume Analyzer
-  ### *Elevate Your Career with Gemini 2.0 Powered Insights*
+  ### *Elevate Your Career with Groq Powered Insights*
 
   [![GitHub license](https://img.shields.io/github/license/ananyaa241/atp_group_project?style=for-the-badge&color=blue)](LICENSE)
   [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
   [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
   [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-  [![Gemini](https://img.shields.io/badge/Gemini_2.0-8E75B2?style=for-the-badge&logo=google-ai&logoColor=white)](https://deepmind.google/technologies/gemini/)
+  [![Groq](https://img.shields.io/badge/Groq-f36422?style=for-the-badge&logo=groq&logoColor=white)](https://groq.com/)
 
   [**Explore the Code**](https://github.com/ananyaa241/Resume_Analyzer) • [**Report Bug**](https://github.com/ananyaa241/Resume_Analyzer/issues) • [**Request Feature**](https://github.com/ananyaa241/Resume_Analyzer/issues)
 </div>
@@ -18,7 +18,7 @@
 
 ## 🌟 Overview
 
-**AI Resume Analyzer** is a commercial-grade, full-stack web application designed to empower job seekers. By leveraging the advanced capabilities of **Gemini 2.0**, it provides deep, actionable insights into how resumes perform against Applicant Tracking Systems (ATS).
+**AI Resume Analyzer** is a commercial-grade, full-stack web application designed to empower job seekers. By leveraging the advanced capabilities of **Groq**, it provides deep, actionable insights into how resumes perform against Applicant Tracking Systems (ATS).
 
 Whether you're a recent graduate or a seasoned professional, our platform helps you bridge the gap between your experience and what recruiters are looking for.
 
@@ -45,7 +45,7 @@ Whether you're a recent graduate or a seasoned professional, our platform helps 
 - **Runtime**: `Node.js`
 - **Framework**: `Express.js`
 - **Database**: `MongoDB Atlas` (via Mongoose)
-- **AI Engine**: `Google Generative AI` (Gemini 2.0)
+- **AI Engine**: `Groq Llama 3` (via Groq API)
 - **SDK**: `Groq SDK`
 - **File Handling**: `Multer`, `pdf-parse`, `mammoth`
 
@@ -59,7 +59,7 @@ graph TD
     Frontend <--> Auth[JWT Auth]
     Frontend <--> API[Express API]
     API <--> DB[(MongoDB Atlas)]
-    API <--> Gemini[Gemini 2.0 AI]
+    API <--> Groq[Groq AI]
     API <--> Storage[File Storage/Parser]
     
     subgraph UI/UX
@@ -69,7 +69,7 @@ graph TD
     subgraph Services
     API
     Auth
-    Gemini
+    Groq
     end
 ```
 
@@ -80,7 +80,7 @@ graph TD
 ### 📋 Prerequisites
 - [Node.js](https://nodejs.org/) (v16.x or higher)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account
-- [Google Gemini API Key](https://aistudio.google.com/)
+- [Groq API Key](https://console.groq.com/keys)
 
 ### 🔧 Installation & Setup
 
@@ -100,8 +100,8 @@ graph TD
    PORT=5000
    MONGODB_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret_key
-   GEMINI_API_KEY=your_google_gemini_api_key
-   GEMINI_MODEL=gemini-2.0-flash-exp
+   GROQ_API_KEY=your_groq_api_key
+   GROQ_MODEL=llama-3.3-70b-versatile
    ```
    Run the server:
    ```bash
