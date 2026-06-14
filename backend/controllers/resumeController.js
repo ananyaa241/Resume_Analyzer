@@ -38,9 +38,24 @@ exports.analyzeResume = async (req, res) => {
             response_format: { type: "json_object" }
         });
 
-        const analysis = JSON.parse(chatCompletion.choices[0].message.content);
+        let analysis;
+        try {
+            analysis = JSON.parse(chatCompletion.choices[0].message.content);
+        } catch (parseError) {
+            console.error("JSON Parse Error:", parseError);
+            console.log("Raw Content:", chatCompletion.choices[0].message.content);
+            throw new Error("AI returned invalid data format. Please try again.");
+        }
 
-        // 3. Save to History
+        // 3. Normalize Data (Defense against AI inconsistencies)
+        if (analysis.interviewPrep && Array.isArray(analysis.interviewPrep)) {
+            analysis.interviewPrep = analysis.interviewPrep.map(item => ({
+                ...item,
+                type: item.type && item.type.toLowerCase().includes('tech') ? 'Technical' : 'Behavioral'
+            }));
+        }
+
+        // 4. Save to History
         const scan = new ResumeScan({
             userId: req.user._id,
             resumeName: req.file.originalname,
@@ -57,9 +72,14 @@ exports.analyzeResume = async (req, res) => {
         // Cleanup
         if (fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
     } catch (error) {
-        console.error("Groq Analysis Error:", error);
+        console.error("Analysis Error Details:", error);
         if (req.file && fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
-        res.status(500).json({ message: error.message });
+
+        // Return a cleaner error message but log the full error
+        res.status(500).json({
+            message: error.message || 'An internal error occurred during analysis.',
+            details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+        });
     }
 };
 

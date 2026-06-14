@@ -61,7 +61,7 @@ Output Schema:
   "interviewPrep": [
     {
       "question": "string",
-      "type": "Technical" | "Behavioral",
+      "type": "Technical", // Must be exactly "Technical" or "Behavioral"
       "rationale": "string",
       "suggestedAnswer": "string"
     }
