@@ -122,8 +122,8 @@ const MockInterview = () => {
                                             {m.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
                                         </div>
                                         <div className={`p-4 rounded-2xl shadow-sm text-sm leading-relaxed ${m.role === 'user'
-                                                ? 'bg-slate-800 text-slate-100 rounded-tr-none'
-                                                : 'bg-indigo-50 text-slate-800 border border-indigo-100 rounded-tl-none'
+                                            ? 'bg-slate-800 text-slate-100 rounded-tr-none'
+                                            : 'bg-indigo-50 text-slate-800 border border-indigo-100 rounded-tl-none'
                                             }`}>
                                             {m.content}
                                         </div>
@@ -155,7 +155,7 @@ const MockInterview = () => {
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Type your response here..."
                                 disabled={isThinking}
-                                className="w-full bg-white border border-slate-200 rounded-2xl py-4 pl-5 pr-14 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all disabled:bg-slate-100"
+                                className="w-full bg-white border border-slate-200 rounded-2xl py-4 pl-5 pr-14 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all disabled:bg-slate-100"
                             />
                             <button
                                 type="submit"

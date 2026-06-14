@@ -654,9 +654,9 @@ const AnalysisReport = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.05 }}
-                                    className={`group border rounded-2xl transition-all duration-300 overflow-hidden ${activeQuestion === i
-                                        ? 'bg-white shadow-xl border-indigo-200'
-                                        : 'bg-slate-50/50 border-slate-100 hover:border-indigo-100 hover:bg-white'
+                                    className={`group border-2 rounded-2xl transition-all duration-300 overflow-hidden ${activeQuestion === i
+                                            ? 'bg-white shadow-2xl shadow-indigo-100 border-indigo-500'
+                                            : 'bg-indigo-50/10 border-indigo-100/50 hover:border-indigo-300 hover:bg-white'
                                         }`}
                                 >
                                     <button
@@ -664,16 +664,20 @@ const AnalysisReport = () => {
                                         className="w-full p-6 text-left flex items-center justify-between gap-4"
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${activeQuestion === i ? 'bg-indigo-600 text-white' : 'bg-white text-indigo-600'
+                                            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 ${activeQuestion === i ? 'bg-indigo-600 text-white scale-110' : 'bg-white text-indigo-600 group-hover:bg-indigo-50'
                                                 }`}>
-                                                {item.type === 'Technical' ? <Target className="w-5 h-5" /> : <MessageSquare className="w-5 h-5" />}
+                                                {item.type === 'Technical' ? <Brain className="w-6 h-6" /> : <MessageSquare className="w-6 h-6" />}
                                             </div>
                                             <div>
-                                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">{item.type} Question</span>
-                                                <h4 className="font-bold text-slate-800 leading-tight">{item.question}</h4>
+                                                <span className={`text-[10px] font-black uppercase tracking-widest ${activeQuestion === i ? 'text-indigo-600' : 'text-slate-400'
+                                                    }`}>{item.type} Analysis</span>
+                                                <h4 className="font-bold text-slate-800 leading-tight text-lg">{item.question}</h4>
                                             </div>
                                         </div>
-                                        {activeQuestion === i ? <ChevronUp className="w-5 h-5 text-slate-400" /> : <ChevronDown className="w-5 h-5 text-slate-400" />}
+                                        <div className={`p-2 rounded-full transition-colors ${activeQuestion === i ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-100 text-slate-400'
+                                            }`}>
+                                            {activeQuestion === i ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                                        </div>
                                     </button>
 
                                     <AnimatePresence>
