@@ -1,8 +1,8 @@
 <div align="center">
   <img src="./assets/banner.png" alt="AI Resume Analyzer Banner" width="100%" />
 
-  # 🚀 AI Resume Analyzer
-  ### *Elevate Your Career with Groq Powered Insights*
+  # <h1 align="center">🚀 AI Resume Analyzer & Mock Interview</h1>
+  ### <h3 align="center">*The Ultimate AI Career Preparation Platform powered by Groq*</h3>
 
   [![GitHub license](https://img.shields.io/github/license/ananyaa241/atp_group_project?style=for-the-badge&color=blue)](LICENSE)
   [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
