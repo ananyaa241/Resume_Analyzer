@@ -5,7 +5,7 @@ import {
     Send, User, Bot, ArrowLeft, RefreshCcw,
     MessageSquare, AlertCircle, Sparkles, Loader2
 } from 'lucide-react';
-import axios from 'axios';
+import api from '../services/api';
 
 const MockInterview = () => {
     const { id } = useParams();
@@ -16,15 +16,10 @@ const MockInterview = () => {
     const [isThinking, setIsThinking] = useState(false);
     const scrollRef = useRef(null);
 
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-
     useEffect(() => {
         const fetchScan = async () => {
             try {
-                const token = localStorage.getItem('token');
-                const { data } = await axios.get(`${API_URL}/resume/${id}`, {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
+                const { data } = await api.get(`/resume/${id}`);
                 setScan(data);
 
                 // Initial AI Greeting
@@ -55,10 +50,8 @@ const MockInterview = () => {
         setIsThinking(true);
 
         try {
-            const token = localStorage.getItem('token');
-            const { data } = await axios.post(`${API_URL}/resume/mock-interview/${id}`,
-                { messages: newMessages },
-                { headers: { Authorization: `Bearer ${token}` } }
+            const { data } = await api.post(`/resume/mock-interview/${id}`,
+                { messages: newMessages }
             );
 
             setMessages(prev => [...prev, { role: "assistant", content: data.reply }]);
