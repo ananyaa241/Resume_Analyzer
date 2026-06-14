@@ -56,7 +56,7 @@ const LoginPage = () => {
                                     type="email"
                                     required
                                     className="input-field pl-10"
-                                    placeholder="name@example.com"
+                                    placeholder="Enter your email"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 />

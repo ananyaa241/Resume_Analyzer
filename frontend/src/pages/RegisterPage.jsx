@@ -63,7 +63,7 @@ const RegisterPage = () => {
                                     type="text"
                                     required
                                     className="input-field pl-10"
-                                    placeholder="John Doe"
+                                    placeholder="Enter your name"
                                     value={formData.fullName}
                                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                                 />
@@ -78,7 +78,7 @@ const RegisterPage = () => {
                                     type="email"
                                     required
                                     className="input-field pl-10"
-                                    placeholder="name@example.com"
+                                    placeholder="Enter your email"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 />
