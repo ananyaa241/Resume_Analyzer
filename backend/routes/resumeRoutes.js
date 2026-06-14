@@ -7,15 +7,8 @@ const { protect } = require('../middleware/auth');
 
 const router = express.Router();
 
-// Multer Config
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-${file.originalname}`);
-    }
-});
+// Multer Config - Using memoryStorage for production stability (works on Vercel/Render)
+const storage = multer.memoryStorage();
 
 const upload = multer({
     storage,

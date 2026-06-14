@@ -14,6 +14,12 @@ const groq = new Groq({
 // @route   POST /api/resume/analyze
 exports.analyzeResume = async (req, res) => {
     try {
+        // 0. Environment Check
+        if (!process.env.GROQ_API_KEY) {
+            console.error("CRITICAL: GROQ_API_KEY is missing from environment variables.");
+            return res.status(500).json({ message: 'Server configuration error: Missing AI API Key.' });
+        }
+
         if (!req.file) {
             return res.status(400).json({ message: 'No file uploaded' });
         }
@@ -23,7 +29,7 @@ exports.analyzeResume = async (req, res) => {
             return res.status(400).json({ message: 'Job description is required' });
         }
 
-        // 1. Extract Text
+        // 1. Extract Text (Now using buffer from Memory Storage)
         const extractedText = await extractText(req.file);
 
         // 2. AI Analysis via Groq
@@ -43,7 +49,6 @@ exports.analyzeResume = async (req, res) => {
             analysis = JSON.parse(chatCompletion.choices[0].message.content);
         } catch (parseError) {
             console.error("JSON Parse Error:", parseError);
-            console.log("Raw Content:", chatCompletion.choices[0].message.content);
             throw new Error("AI returned invalid data format. Please try again.");
         }
 
@@ -68,12 +73,8 @@ exports.analyzeResume = async (req, res) => {
         console.log("Scan saved successfully with Groq");
 
         res.status(200).json(scan);
-
-        // Cleanup
-        if (fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
     } catch (error) {
         console.error("Analysis Error Details:", error);
-        if (req.file && fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
 
         // Return a cleaner error message but log the full error
         res.status(500).json({
