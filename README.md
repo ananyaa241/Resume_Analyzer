@@ -26,7 +26,7 @@ Whether you're a recent graduate or a seasoned professional, our platform helps 
 
 - 🔐 **Secure Authentication**: Robust JWT-based registration and login system.
 - 📄 **Multi-Format Support**: Seamlessly parse resumes in both **PDF** and **DOCX** formats.
-- 🧠 **AI-Powered Analysis**: Detailed ATS match scores, keyword density analysis, and professional feedback via Google Gemini API.
+- 🧠 **AI-Powered Analysis**: Detailed ATS match scores, keyword density analysis, and professional feedback via Groq API.
 - 📊 **Interactive Data Visuals**: Stunning radar and circular charts powered by Recharts & Chart.js.
 - 🛠️ **Instant Optimizer**: Real-time suggestions to enhance work experience, projects, and skills.
 - 📜 **History & Tracking**: Manage and review your previous resume scans at any time.
