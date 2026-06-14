@@ -737,9 +737,12 @@ const AnalysisReport = () => {
                                     </div>
                                     <h4 className="font-bold text-slate-800 mb-2">Want more prep?</h4>
                                     <p className="text-xs text-slate-500 mb-6">Our AI can conduct a mock interview with you via chat.</p>
-                                    <button className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-indigo-200 transition-all active:scale-95">
+                                    <Link
+                                        to={`/mock-interview/${id}`}
+                                        className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-indigo-200 transition-all active:scale-95 text-center block"
+                                    >
                                         Start Mock Interview
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const { analyzeResume, getHistory, deleteHistoryItem, getScanDetail, optimizeResume } = require('../controllers/resumeController');
+const { conductMockInterview } = require('../controllers/mockInterviewController');
 const { protect } = require('../middleware/auth');
 
 const router = express.Router();
@@ -35,6 +36,7 @@ router.post('/analyze', protect, upload.single('resume'), analyzeResume);
 router.post('/optimize', protect, optimizeResume);
 router.get('/history', protect, getHistory);
 router.get('/:id', protect, getScanDetail);
+router.post('/mock-interview/:id', protect, conductMockInterview);
 router.delete('/:id', protect, deleteHistoryItem);
 
 module.exports = router;

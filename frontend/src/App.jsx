@@ -11,6 +11,7 @@ import RegisterPage from './pages/RegisterPage';
 import Dashboard from './pages/Dashboard';
 import AnalysisReport from './pages/AnalysisReport';
 import History from './pages/History';
+import MockInterview from './pages/MockInterview';
 
 function App() {
   return (
@@ -39,6 +40,12 @@ function App() {
               <Route path="/report/:id" element={
                 <ProtectedRoute>
                   <AnalysisReport />
+                </ProtectedRoute>
+              } />
+
+              <Route path="/mock-interview/:id" element={
+                <ProtectedRoute>
+                  <MockInterview />
                 </ProtectedRoute>
               } />
             </Routes>
