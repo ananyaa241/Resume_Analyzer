@@ -637,11 +637,11 @@ const AnalysisReport = () => {
                 <div className="mt-20">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
                         <div>
-                            <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-[10px] font-bold rounded-full uppercase tracking-widest mb-4 inline-block">Next Steps</span>
-                            <h2 className="text-4xl font-black text-slate-900 flex items-center gap-3">
+                            <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold rounded-full uppercase tracking-widest mb-4 inline-block">Next Steps</span>
+                            <h2 className="text-4xl font-black text-slate-900 dark:text-white flex items-center gap-3">
                                 <Brain className="w-10 h-10 text-indigo-600" /> AI Interview Prep
                             </h2>
-                            <p className="text-slate-500 mt-2 text-lg">Tailored questions and STAR-method answers based on your experience.</p>
+                            <p className="text-slate-500 dark:text-slate-400 mt-2 text-lg">Tailored questions and STAR-method answers based on your experience.</p>
                         </div>
                     </div>
 
@@ -655,8 +655,8 @@ const AnalysisReport = () => {
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.05 }}
                                     className={`group border-2 rounded-2xl transition-all duration-300 overflow-hidden ${activeQuestion === i
-                                            ? 'bg-white shadow-2xl shadow-indigo-100 border-indigo-500'
-                                            : 'bg-indigo-50/10 border-indigo-100/50 hover:border-indigo-300 hover:bg-white'
+                                        ? 'bg-white dark:bg-slate-800 shadow-2xl shadow-indigo-100 dark:shadow-none border-indigo-500'
+                                        : 'bg-indigo-50/10 dark:bg-slate-900/50 border-indigo-100/50 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:bg-white dark:hover:bg-slate-800/80'
                                         }`}
                                 >
                                     <button
@@ -664,17 +664,18 @@ const AnalysisReport = () => {
                                         className="w-full p-6 text-left flex items-center justify-between gap-4"
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 ${activeQuestion === i ? 'bg-indigo-600 text-white scale-110' : 'bg-white text-indigo-600 group-hover:bg-indigo-50'
+                                            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 ${activeQuestion === i ? 'bg-indigo-600 text-white scale-110' : 'bg-white dark:bg-slate-800 text-indigo-600 group-hover:bg-indigo-50 dark:group-hover:bg-slate-700'
                                                 }`}>
                                                 {item.type === 'Technical' ? <Brain className="w-6 h-6" /> : <MessageSquare className="w-6 h-6" />}
                                             </div>
                                             <div>
-                                                <span className={`text-[10px] font-black uppercase tracking-widest ${activeQuestion === i ? 'text-indigo-600' : 'text-slate-400'
+                                                <span className={`text-[10px] font-black uppercase tracking-widest ${activeQuestion === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400 dark:text-slate-500'
                                                     }`}>{item.type} Analysis</span>
-                                                <h4 className="font-bold text-slate-800 leading-tight text-lg">{item.question}</h4>
+                                                <h4 className={`font-bold leading-tight text-lg ${activeQuestion === i || i === 0 ? 'text-slate-800 dark:text-white' : 'text-slate-800 dark:text-slate-200'
+                                                    }`}>{item.question}</h4>
                                             </div>
                                         </div>
-                                        <div className={`p-2 rounded-full transition-colors ${activeQuestion === i ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-100 text-slate-400'
+                                        <div className={`p-2 rounded-full transition-colors ${activeQuestion === i ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'
                                             }`}>
                                             {activeQuestion === i ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                                         </div>
@@ -686,23 +687,23 @@ const AnalysisReport = () => {
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: 'auto', opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
-                                                className="border-t border-indigo-50"
+                                                className="border-t border-indigo-50 dark:border-slate-700"
                                             >
                                                 <div className="p-8 space-y-6">
-                                                    <div className="bg-indigo-50/50 p-4 rounded-xl">
+                                                    <div className="bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-xl">
                                                         <div className="flex items-center gap-2 mb-2">
-                                                            <HelpCircle className="w-4 h-4 text-indigo-600" />
-                                                            <span className="text-xs font-bold text-indigo-900 uppercase">Rationale</span>
+                                                            <HelpCircle className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                                                            <span className="text-xs font-bold text-indigo-900 dark:text-indigo-200 uppercase">Rationale</span>
                                                         </div>
-                                                        <p className="text-sm text-indigo-800 leading-relaxed italic">{item.rationale}</p>
+                                                        <p className="text-sm text-indigo-800 dark:text-indigo-100 leading-relaxed italic">{item.rationale}</p>
                                                     </div>
 
                                                     <div>
                                                         <div className="flex items-center gap-2 mb-3">
                                                             <Lightbulb className="w-4 h-4 text-amber-500" />
-                                                            <span className="text-xs font-bold text-slate-700 uppercase">Suggested Response (STAR Method)</span>
+                                                            <span className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Suggested Response (STAR Method)</span>
                                                         </div>
-                                                        <div className="bg-slate-900 text-slate-200 p-6 rounded-2xl shadow-inner text-sm leading-relaxed font-medium">
+                                                        <div className="bg-slate-900 dark:bg-slate-950 text-slate-200 p-6 rounded-2xl shadow-inner text-sm leading-relaxed font-medium border border-slate-800">
                                                             {item.suggestedAnswer}
                                                         </div>
                                                     </div>
@@ -735,15 +736,15 @@ const AnalysisReport = () => {
                                     </ul>
                                 </div>
 
-                                <div className="glass-card p-8 border-dashed border-2 border-indigo-100 flex flex-col items-center text-center">
-                                    <div className="w-16 h-16 bg-indigo-50 rounded-full flex items-center justify-center mb-4">
-                                        <Wand2 className="w-8 h-8 text-indigo-600" />
+                                <div className="glass-card p-8 border-dashed border-2 border-indigo-100 dark:border-slate-800 flex flex-col items-center text-center bg-white/50 dark:bg-slate-900/50">
+                                    <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-900/30 rounded-full flex items-center justify-center mb-4">
+                                        <Wand2 className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
                                     </div>
-                                    <h4 className="font-bold text-slate-800 mb-2">Want more prep?</h4>
-                                    <p className="text-xs text-slate-500 mb-6">Our AI can conduct a mock interview with you via chat.</p>
+                                    <h4 className="font-bold text-slate-800 dark:text-white mb-2">Want more prep?</h4>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">Our AI can conduct a mock interview with you via chat.</p>
                                     <Link
                                         to={`/mock-interview/${id}`}
-                                        className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-indigo-200 transition-all active:scale-95 text-center block"
+                                        className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-indigo-200 dark:hover:shadow-indigo-900/50 transition-all active:scale-95 text-center block"
                                     >
                                         Start Mock Interview
                                     </Link>
