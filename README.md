@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="./assets/banner.png" alt="AI Resume Analyzer Banner" width="100%" />
 
   # <h1 align="center">🚀 AI Resume Analyzer & Mock Interview</h1>
   ### <h3 align="center">*The Ultimate AI Career Preparation Platform powered by Groq*</h3>
